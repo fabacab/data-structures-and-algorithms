@@ -34,88 +34,11 @@ words.forEach(word => {
  * Instead, they are broken into their constituent characters
  * and each character is added to the trie as part of the trie's
  * tree structure.
- * 
- * For instance, for the English language, where the only valid
- * starting characters are the letters "A" through "Z", our trie
- * will have at most 26 "root" nodes:
- * 
- *  {
- *      'a': { … },
- *      // 'b', 'c', and so on…
- *      'z': { … }
- *  }
- * 
- * Given the word `cake`, we would have a structure like this:
- * 
- * {
- *    'c': {
- *      'a': {
- *        'k': {
- *          'e': {
- *            …
- *          }
- *        }
- *      }
- *    }
- * }
- * 
- * Notice that the first level is only the letter "c" and not
- * the whole string "cake." This means that when we add another
- * word that begins with the same letter, we can add it to the
- * sublevel of "c" instead of storing it in its entirety:
- * 
- * {
- *    'c': {
- *      'a': {
- *        'k': {
- *          'e': {
- *            …
- *          }
- *        }
- *      },
- *      'u': {
- *        't': {
- *          'e': {
- *            …
- *          }
- *        }
- *      }
- *    }
- * }
- * 
- * The above trie contains the words "cake" and "cute." Since
- * both words begin with the letter "c," there is only one "c"
- * object inside the trie. If we then add the word "cat" to the
- * above trie, our object should look like this:
- * 
- * {
- *    'c': {
- *      'a': {
- *        'k': {
- *          'e': {
- *            …
- *          }
- *        },
- *        't': {
- *           …
- *        }
- *      },
- *      'u': {
- *        't': {
- *          'e': {
- *            …
- *          }
- *        }
- *      }
- *    }
- * }
- * 
- * Notice that when we added the word "cat" we only had to add
- * the one letter that was not already the same as any other
- * word's prefix. In this case, that was simply the letter "t."
  *
  * @param {string} string
  * @param {Object} trie
+ *
+ * @return {Object}
  */
 function addToTrie(string, trie) {
     // Get the first letter of our string.
@@ -127,7 +50,6 @@ function addToTrie(string, trie) {
         // that node by the letter we've just checked. That "letter"
         // is now an object in our data structure.
         trie[letter] = {};
-
     }
 
     // Next we need to move on to the "rest" of the string.
