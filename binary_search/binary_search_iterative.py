@@ -8,6 +8,8 @@ alphabets (because "A" is always before "B," and so on), or number
 lines (because "1" is always before "2," and so on).
 """
 
+from math import floor # We're gonna need to round down.
+
 def binary_search_iterative(stuff, item):
     """
     Return the index of ``item`` in ``list`` using binary search.
@@ -51,7 +53,7 @@ def binary_search_iterative(stuff, item):
     while low <= high:
         # The middle spot of our range is always going to be the
         # current value of low plus high, divided by two.
-        mid = (low + high) / 2
+        mid = int(floor((low + high) / 2)) # round down, just in case.
 
         guess = stuff[mid] # That middle spot will be our next guess,
         guess_number = guess_number + 1 # so let's count our guesses.
@@ -82,5 +84,5 @@ def binary_search_iterative(stuff, item):
     return None
 
 if __name__ == "__main__":
-    num = int(raw_input('Enter a number between 1 and 100: '))
+    num = int(input('Enter a number between 1 and 100: '))
     binary_search_iterative(range(1, 101), num)
