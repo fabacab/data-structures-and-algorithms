@@ -13,3 +13,68 @@ This repository exists, therefore, as a place for me to compile my own notes abo
 We understand that this doucheyness is a form of power-hoarding, i.e., gatekeeping. In the spirit of the original hacker ethos, "information should be free," we recognize this social gatekeeping behavior as a form of censorship and are determined to use the Internet to route around it.
 
 TL;DR: Fuck your CS courses and your classist academia. We're going to learn this thing without your goddamn "help."
+
+## How to use this repository
+
+This is not a book. You don't have to read it "in order." In fact, I'm not even sure there's any particular order to read it in. I've also avoided any kind of "easier to harder" gradation, because these have not been useful to me when I've encountered them.
+
+Instead, I encourage you to jump directly to the subsections that interest you. If you get frustrated, try a different section. Although you will certainly find yourself becoming more proficient the more you practice, each section is written to be accessible by novice coders with no prior exposure to the algorithm or data structure in question and assumes no prior knowledge of other algorithms or data structures.
+
+### Running the code
+
+I strongly encourage you to actually run and play around with the code itself. Do not merely read the source code, although do *also* read the source code. The source code files are *thoroughly* commented and are written with the intent of being educational. However, do absolutely download the files, or type them verbatim into your text editor, and execute them yourself.
+
+Better yet, *debug* them yourself. This doesn't mean that there are bugs in the code. There aren't. (At least, I hope there aren't!) Instead, it means use your language's built-in debugging tools to inspect the code at each stage of its operation. This section will explain how to do that in more detail.
+
+#### Python
+
+The Python code samples are all compatible with both Python 2.7 and Python 3 versions. To run them, execute them like this at a command shell:
+
+```sh
+python binary_search/binary_search_iterative.py # to run the iterative implementation of the binary search algorithm example
+```
+
+Python's built-in debugger is called [`pdb`](https://docs.python.org/3/library/pdb.html). To debug the code samples, execute them like so:
+
+```sh
+python -m pdb binary_search/binary_search_iterative.py # debug the binary_search_iterative.py example
+```
+
+You can use the debugger to run one line of the code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The `pdb` help is pretty good, but feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
+
+#### JavaScript
+
+The JavaScript code samples are all compatible with [NodeJS](https://nodejs.org/) and all modern Web browser consoles. You can run them in a shell at a command line, or you can copy-and-paste them into the JavaScript console in your browser's developer tools.
+
+To run them in a shell, execute them with `node` like this:
+
+```sh
+node trie/trie.js # to run the JavaScript example of the trie data structure
+```
+
+NodeJS has a built-in debugger, but the author finds it horrifically lacking and far prefers basically any browser's developer tools instead. That said, to debug the JavaScript code samples with the built-in NodeJS debugger, execute them like so:
+
+```sh
+node debug trie/trie.js # to debug the JavaScript example of the trie data structure
+```
+
+You can use the debugger to run one line of the code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The NodeJS debugger's help isn't very extensive, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
+
+Alternatively, open the `.html` file in your web browser (probably just by double-clicking it). The code will run automatically, though you may need to ensure your developer tools are open to see it. To learn more about your browser's developer tools, refer to your browser's documentation:
+
+* [Google Chrome DevTools Overview](https://developers.google.com/web/tools/chrome-devtools/) provides everything you need to know about using the DevTools in Google Chrome, but for our purposes, focus on the following articles:
+  * Using the [Google Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/)
+  * [Inspect and Debug JavaScript: Set Breakpoints](https://developers.google.com/web/tools/chrome-devtools/javascript/add-breakpoints)
+  * [Inspect and Debug JavaScript: Step Through Code](https://developers.google.com/web/tools/chrome-devtools/javascript/step-code)
+* [Mozilla Firefox Developer Tools portal](https://developer.mozilla.org/en-US/docs/Tools) provides everything you need to know about using the Developer Tools in Mozilla Firefox, but for our purposes, focus on the following articles:
+  * [Opening the Mozilla Firefox Web Console](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console)
+  * [Opening the Firefox JavaScript Debugger](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger)
+  * [Set a breakpoint - Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_breakpoint)
+  * [Step through code - Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_breakpoint)
+
+## Exercise suggestions
+
+In addition to running the code samples, I suggest you try one or more of the following exercises with each sample. It's more fun if you can find a friend to do them with. This is called "pair programming" (or just "pairing" for short), and it works a little bit like the way a pilot and co-pilot collaborate when flying a plane: one person has their hands on the keyboard (the "driver") and the other person suggests things to try (the "navigator"). Switch up who's driving and who's navigating as often as you feel comfortable, but try to make sure one of you isn't monopolizing one role or the other. (You might be surprised how much you can learn from navigating rather than driving, or vice versa, if you're not used to it.)
+
+* Re-implement one of the algorithms or construct one of the data structures using a different programming language than the ones in the repository. For instance, if you know Ruby but only see a Python code sample, rewrite the code so it does the same thing in Ruby.
+* Re-implement the same algorithm using a different programming style. For instance, if you see a code sample implementing an algorithm recursively, implement an iterative variant, or vice versa.
