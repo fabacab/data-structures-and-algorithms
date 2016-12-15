@@ -1,31 +1,10 @@
 # Trie
 
-A trie (pronounced "try," shortened name from the word "reTRIEval")
-is a kind of "tree" data structure useful for quickly retrieving
-a result based on a given starting input (the prefix).
+A trie (pronounced "try") is a nested data structure useful for quickly retrieving (hence the name, as it's used for re*trie*val) a result based on a given starting input (called the *prefix*). You probably use tries every day without thinking much about it. For example, when you start typing into a search box and are immediately shown [auto-completed search suggestions](https://support.google.com/websearch/answer/106230?hl=en "Google Search Help: Search using autocomplete"), it's likely that the app you're using has made a trie of all prior search queries it's been asked before!
 
-For example, when you start typing into a search box and are shown
-auto-completed search suggestions almost instantly, there's likely
-a trie somewhere under the hood.
+A word or phrase is not added to a trie as a single, complete entry. Instead, the word or phrase is first broken up into its individual characters. The word "cake" would be stored as a set of four separate items: the letters `c`, `a`, `k`, and `e`. The magic is in choosing where in the trie to insert each character.
 
-Strings (words, phrases, etc.) are not added to tries as their original string.
-Instead, they are broken into their constituent characters
-and each character is added to the trie as part of the trie's
-tree structure.
- 
-For instance, for the English language, where the only valid
-starting characters are the letters "A" through "Z", our trie
-will have at most 26 "root" nodes. In JavaScript, that might be represented like this:
-
-```js
-{
-    'a': { /* ...some data in here... */ },
-    // same for 'b', 'c', and so on...
-    'z': { /* ...some data in here... */ }
-}
-```
-
-Given the word `cake`, we would have a structure like this:
+If we only have one word in our trie, such as the word `cake`, we would have a structure that might look like this in JavaScript:
 
 ```js
 {
@@ -41,10 +20,9 @@ Given the word `cake`, we would have a structure like this:
 }
 ```
 
-Notice that the first level is only the letter "c" and not
-the whole string "cake." This means that when we add another
-word that begins with the same letter, we can add it to the
-sublevel of "c" instead of storing it in its entirety:
+As you can see, we have a containing object (the outermost braces), which is our trie itself. Inside that, we have a `c`, and inside that `c` we have an `a`, and so on. One character is nested "inside" the preceding character until we reach the end of the word (at `e`, in this case).
+
+The important thing to notice is that the first level is only the letter "c" and not the whole word "cake." This means that when we add another word that *begins with the same letter* (it has the "same prefix"), we can add it to the trie by repurposing the outermost `c` character and only adding characters in places where the prefix is different. For instance, if we add the word "cute" to our trie, our JavaScript representation might now look like this:
 
 ```js
 {
@@ -67,11 +45,8 @@ sublevel of "c" instead of storing it in its entirety:
     }
 }
 ```
- 
-The above trie contains the words "cake" and "cute." Since
-both words begin with the letter "c," there is only one "c"
-object inside the trie. If we then add the word "cat" to the
-above trie, our object should look like this:
+
+The above trie contains both the words "cake" and the word "cute." However, since both words start with the letter "c," there is only one `c` inside the trie; `c` is the common prefix for both `cake` and `cute`. If we then add the word "cat" to the above trie, our JavaScript object should look like this:
 
 ```js
 {
@@ -97,9 +72,40 @@ above trie, our object should look like this:
 }
 ```
 
-Notice that when we added the word "cat" we only had to add
-the one letter that was not already the same as any other
-word's prefix. In this case, that was simply the letter "t."
+This time, notice that when we added the word "cat" we only had to add the one letter that was not already the same as any other prefix. In this case, that was simply the letter `t`, because `cat` shares a common two-character prefix with `cake`, which we already added in our trie when we first added the word "cake" to it.
+
+How might this structure make tasks such as "check if we have seen the word `cake` before" much faster and easier to accomplish? Well, rather than having to check to see if we have the word "cake" in our (possibly very long) list of words, we simply have to check if we have any words that begin with `c`, and if we do, if that `c` "contains" an `a`, and if so, whether that `a` contains a `k`, and so on. If at any point we do *not* have the next character of our lookup word, we simply stop looking because it's certainly not possible to have the word "cake" in our trie if we've never seen any given *prefix* of the word itself! That is, we can't possibly have the word "cake" in our list of words if we've never seen a word that begins with `ca`. (And we can't possibly have `cat` in our list then, either.)
+
+Here's another example of a trie, this time with four words in it:
+
+```js
+{
+    "c": {
+        "a": {
+            "t": {},
+            "p": {
+                "e": {
+                    "r": {}
+                }
+            }
+        }
+    },
+    "d": {
+        "a": {
+            "r": {
+                "k": {}
+            },
+            "p": {
+                "p": {
+                    "e": {
+                        "r": {}
+                    }
+                }
+            }
+        }
+    }
+}
+```
 
 ## Further reading
 

@@ -70,4 +70,4 @@ function addToTrie(string, trie) {
     return trie;
 }
 
-console.log(JSON.stringify(trie, null, 2));
+console.log(JSON.stringify(trie, null, 4));
