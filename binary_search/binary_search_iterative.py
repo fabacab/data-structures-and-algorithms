@@ -12,7 +12,7 @@ from math import floor # We're gonna need to round down.
 
 def binary_search_iterative(stuff, item):
     """
-    Return the index of ``item`` in ``list`` using binary search.
+    Return the index of ``item`` in ``stuff`` using binary search.
 
     Args:
         stuff (list): A Python list that has already been sorted.
