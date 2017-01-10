@@ -51,17 +51,16 @@ class Singly_Linked_List {
      * @param mixed $value
      */
     public function appendElement ($value = null) {
-        // Find the last element in the list.
-        $last_element = $this->getLastElement();
-
-        if ($last_element instanceof Singly_Linked_List_Element) {
+        if ($this->first instanceof Singly_Linked_List_Element) {
             // If there are already elements in the list, we add the
             // new element to the end of the list by making the last
             // element's `$next` variable point to the new element.
+            $last_element = $this->getLastElement();
             $last_element->next = new Singly_Linked_List_Element($value);
         } else {
-            // Otherwise we make a new element to be the beginning of
-            // the list.
+            // Otherwise, if the first element is still null (which
+            // is how we initialized it), we have an empty list, so
+            // this element can go in the first spot.
             $this->first = new Singly_Linked_List_Element($value);
         }
     }
@@ -72,17 +71,18 @@ class Singly_Linked_List {
      * @return null|Singly_Linked_List_Element
      */
     public function getLastElement () {
-        // Start at the beginning.
+        // Start at the beginning of the list.
         $current_element = $this->first;
 
-        // Examine each element to see if it has a next one.
+        // Examine each element to see if it knows about a next one.
         while (null !== $current_element->next) {
             // If it does, check that element next.
             $current_element = $current_element->next;
         }
 
-        // When the examined element's `$next` member variable is null,
-        // we've reached the end of the list so we return that element.
+        // When the examined element's `$next` member variable doesn't
+        // know about a next element, it means that element is the
+        // last one in the list, so we return it.
         return $current_element;
     }
 
@@ -123,7 +123,7 @@ class Singly_Linked_List_Element {
 // Let's put these items into a singly linked list.
 $items = array('hairbrush', 'stuffed animal', 'blanket', 'cooking pot');
 
-// Create our list.
+// Create the list.
 $singly_linked_list = new Singly_Linked_List();
 
 // We add each item to a list element, one after the other.
