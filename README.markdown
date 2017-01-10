@@ -31,7 +31,8 @@ Better yet, *debug* them yourself. This doesn't mean that there are bugs in the 
 The Python code samples are all compatible with both Python 2.7 and Python 3 versions. To run them, execute them like this at a command shell:
 
 ```sh
-python binary_search/binary_search_iterative.py # to run the iterative implementation of the binary search algorithm example
+# to run the iterative implementation of the binary search algorithm example
+python binary_search/binary_search_iterative.py
 ```
 
 Python's built-in debugger is called [`pdb`](https://docs.python.org/3/library/pdb.html). To debug the code samples, execute them like so:
@@ -49,13 +50,14 @@ The JavaScript code samples are all compatible with [NodeJS](https://nodejs.org/
 To run them in a shell, execute them with `node` like this:
 
 ```sh
-node trie/trie.js # to run the JavaScript example of the trie data structure
+# to run the recursive implementation example of the trie data structure
+node trie/trie_recursive.js
 ```
 
 NodeJS has a built-in debugger, but the author finds it horrifically lacking and far prefers basically any browser's developer tools instead. That said, to debug the JavaScript code samples with the built-in NodeJS debugger, execute them like so:
 
 ```sh
-node debug trie/trie.js # to debug the JavaScript example of the trie data structure
+node debug trie/trie_recursive.js
 ```
 
 You can use the debugger to run one line of the code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The NodeJS debugger's help isn't very extensive, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
@@ -71,6 +73,17 @@ Alternatively, open the `.html` file in your web browser (probably just by doubl
   * [Opening the Firefox JavaScript Debugger](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger)
   * [Set a breakpoint - Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_breakpoint)
   * [Step through code - Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_breakpoint)
+
+#### PHP
+
+The PHP code samples are all compatible with PHP 5.3 and higher. To run them, execute them like this at a command shell:
+
+```sh
+# to run the object-oriented implementation of the singly linked list data structure example
+php singly_linked_list/singly_linked_list_object_oriented.php
+```
+
+:construction: TK-TODO: Figure out what is the best novice debugging experience in PHP. (Probably not Xdebug?)
 
 ## Exercise suggestions
 
