@@ -24,7 +24,7 @@
  *
  * The singly linked list itself is the logical container for all the
  * list's elements. The list needs to know which element is the first
- * element. It does *not* need to * know the order of the list items
+ * element. It does *not* need to know the order of the list items
  * themselves, because each element is responsible for knowing which
  * one comes after it.
  */
@@ -52,25 +52,26 @@ class Singly_Linked_List {
      */
     public function appendElement ($value = null) {
         // Find the last element in the list.
-        $last_element = $this->end();
+        $last_element = $this->getLastElement();
 
-        // If there are no elements in the list, the "last element"
-        // will actually be a `null` value.
-        if (null === $last_element) {
-            // In that case, we make a new element,
-            // and assign that element to the beginning of the list.
-            $this->first = new Singly_Linked_List_Element($value);
-        } else {
-            // If there are already elements in the list, we set the
-            // new element to its previous element's `$next` member.
+        if ($last_element instanceof Singly_Linked_List_Element) {
+            // If there are already elements in the list, we add the
+            // new element to the end of the list by making the last
+            // element's `$next` variable point to the new element.
             $last_element->next = new Singly_Linked_List_Element($value);
+        } else {
+            // Otherwise we make a new element to be the beginning of
+            // the list.
+            $this->first = new Singly_Linked_List_Element($value);
         }
     }
 
     /**
-     * Seek to the end of the list.
+     * Find the element at the end of the list.
+     *
+     * @return null|Singly_Linked_List_Element
      */
-    public function end () {
+    public function getLastElement () {
         // Start at the beginning.
         $current_element = $this->first;
 
