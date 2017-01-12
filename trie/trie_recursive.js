@@ -15,16 +15,14 @@
  */
 
 // Store these words in a trie.
-const words = ['cat', 'caper', 'dark', 'dapper'];
+var words = ['cat', 'caper', 'dark', 'dapper'];
 
 // The trie object itself.
-const trie = {}; // It begins empty, since there's no data in the trie.
+var trie = {}; // It begins empty, since there's no data in the trie.
 
 // Each word needs to be added to the trie.
-words.forEach(word => {
-
-  addToTrie(word, trie);
-
+words.forEach(function (word) {
+    addToTrie(word, trie);
 });
 
 /**
@@ -42,7 +40,7 @@ words.forEach(word => {
  */
 function addToTrie(string, trie) {
     // Get the first letter of our string.
-    const letter = string[0];
+    var letter = string[0];
 
     // Check to see if the first letter is in our trie.
     if (!trie[letter]) {

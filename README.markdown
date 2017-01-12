@@ -26,9 +26,9 @@ I strongly encourage you to actually run and play around with the code itself. D
 
 Better yet, *debug* them yourself. This doesn't mean that there are bugs in the code. There aren't. (At least, I hope there aren't!) Instead, it means use your language's built-in debugging tools to inspect the code at each stage of its operation. This section will explain how to do that in more detail.
 
-#### Python
+#### [Python](https://python.org/)
 
-The Python code samples are all compatible with both Python 2.7 and Python 3 versions. To run them, execute them like this at a command shell:
+The Python code samples are all compatible with both [Python 2.7](https://docs.python.org/2.7/) and [Python 3](https://docs.python.org/3/) versions. To run them, execute them like this at a command shell:
 
 ```sh
 # to run the iterative implementation of the binary search algorithm example
@@ -43,9 +43,9 @@ python -m pdb binary_search/binary_search_iterative.py # debug the binary_search
 
 You can use the debugger to run one line of the code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The `pdb` help is pretty good, but feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
 
-#### JavaScript
+#### [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-The JavaScript code samples are all compatible with [NodeJS](https://nodejs.org/) and all modern Web browser consoles. You can run them in a shell at a command line, or you can copy-and-paste them into the JavaScript console in your browser's developer tools.
+The JavaScript code samples are all compatible with [NodeJS](https://nodejs.org/) and all modern Web browser consoles because they conform to [ECMAScript 5](https://en.wikipedia.org/wiki/ECMAScript#5th_Edition). You can run them in a shell at a command line, or you can copy-and-paste them into the JavaScript console in your browser's developer tools.
 
 To run them in a shell, execute them with `node` like this:
 
@@ -74,16 +74,22 @@ Alternatively, open the `.html` file in your web browser (probably just by doubl
   * [Set a breakpoint - Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_breakpoint)
   * [Step through code - Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_breakpoint)
 
-#### PHP
+#### [PHP](https://php.net/)
 
-The PHP code samples are all compatible with PHP 5.3 and higher. To run them, execute them like this at a command shell:
+The PHP code samples are all compatible with PHP 5.6 and newer. To run them, execute them like this at a command shell:
 
 ```sh
 # to run the object-oriented implementation of the singly linked list data structure example
 php singly_linked_list/singly_linked_list_object_oriented.php
 ```
 
-:construction: TK-TODO: Figure out what is the best novice debugging experience in PHP. (Probably not Xdebug?)
+PHP's built-in debugger is called [`phpdbg`](http://phpdbg.com/). To debug the PHP code samples, execute them like so:
+
+```sh
+phpdbg singly_linked_list/singly_linked_list_object_oriented.php
+```
+
+You can use the debugger to run one line of code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The `phpdbg` help is verbose but not very intuitive, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
 
 ## Exercise suggestions
 
