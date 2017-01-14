@@ -91,6 +91,23 @@ phpdbg singly_linked_list/singly_linked_list_object_oriented.php
 
 You can use the debugger to run one line of code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The `phpdbg` help is verbose but not very intuitive, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
 
+#### [Ruby](https://www.ruby-lang.org/)
+
+The Ruby code samples are all compatible with Ruby 2.0 and newer. To run them, execute them like this at a command shell:
+
+```sh
+# to run the imperative-style implementation of the selection sort algorithm example
+ruby selection_sort/selection_sort_imperative.rb
+```
+
+Ruby's built-in debugging library is called [`Debug`](http://ruby-doc.org/stdlib-2.0.0/libdoc/debug/rdoc/DEBUGGER__.html). To debug the Ruby code samples, execute them like so:
+
+```sh
+ruby -r debug selection_sort/selection_sort_imperative.rb
+```
+
+You can use the debugger to run one line of code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (Ruby's debugger help is somewhat limited, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
+
 ## Exercise suggestions
 
 In addition to running the code samples, I suggest you try one or more of the following exercises with each sample. It's more fun if you can find a friend to do them with. This is called "pair programming" (or just "pairing" for short), and it works a little bit like the way a pilot and co-pilot collaborate when flying a plane: one person has their hands on the keyboard (the "driver") and the other person suggests things to try (the "navigator"). Switch up who's driving and who's navigating as often as you feel comfortable, but try to make sure one of you isn't monopolizing one role or the other. (You might be surprised how much you can learn from navigating rather than driving, or vice versa, if you're not used to it.)
