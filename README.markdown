@@ -2,6 +2,16 @@
 
 A compendium for self-education about "data structures and algorithms," created by and for "people without computer science degrees."
 
+1. [Motivation](#motivation)
+1. [How to use this repository](#how-to-use-this-repository)
+  1. [Running the code](#running-the-code)
+    * [JavaScript](#javascript)
+    * [PHP](#php)
+    * [Python](#python)
+    * [Ruby](#ruby)
+  1. [About code comments](#about-code-comments)
+1. [Exercise suggestions](#exercise-suggestions)
+
 ## Motivation
 
 Core computer science concepts, such as "data structures and algorithms," are taught using a classist, fucked-up pedagogical approach that makes me viscerally, incoherently angry. Nevertheless, I would like to know what the fuck people mean when they say things like "data structure" or "algorithm" and refer to specific structures or specific algorithms. Despite 20 years of practical programming experience, working in a variety of Information Technology sectors, I still feel completely lost when attempting to navigate this area of specialized knowledge.
@@ -25,23 +35,6 @@ Instead, I encourage you to jump directly to the subsections that interest you. 
 I strongly encourage you to actually run and play around with the code itself. Do not merely read the source code, although do *also* read the source code. The source code files are *thoroughly* commented and are written with the intent of being educational. However, do absolutely download the files, or type them verbatim into your text editor, and execute them yourself.
 
 Better yet, *debug* them yourself. This doesn't mean that there are bugs in the code. There aren't. (At least, I hope there aren't!) Instead, it means use your language's built-in debugging tools to inspect the code at each stage of its operation. This section will explain how to do that in more detail.
-
-#### [Python](https://python.org/)
-
-The Python code samples are all compatible with both [Python 2.7](https://docs.python.org/2.7/) and [Python 3](https://docs.python.org/3/) versions. To run them, execute them like this at a command shell:
-
-```sh
-# to run the iterative implementation of the binary search algorithm example
-python binary_search/binary_search_iterative.py
-```
-
-Python's built-in debugger is called [`pdb`](https://docs.python.org/3/library/pdb.html). To debug the code samples, execute them like so:
-
-```sh
-python -m pdb binary_search/binary_search_iterative.py # debug the binary_search_iterative.py example
-```
-
-You can use the debugger to run one line of the code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The `pdb` help is pretty good, but feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
 
 #### [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
@@ -91,6 +84,23 @@ phpdbg singly_linked_list/singly_linked_list_object_oriented.php
 
 You can use the debugger to run one line of code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The `phpdbg` help is verbose but not very intuitive, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
 
+#### [Python](https://python.org/)
+
+The Python code samples are all compatible with both [Python 2.7](https://docs.python.org/2.7/) and [Python 3](https://docs.python.org/3/) versions. To run them, execute them like this at a command shell:
+
+```sh
+# to run the iterative implementation of the binary search algorithm example
+python binary_search/binary_search_iterative.py
+```
+
+Python's built-in debugger is called [`pdb`](https://docs.python.org/3/library/pdb.html). To debug the code samples, execute them like so:
+
+```sh
+python -m pdb binary_search/binary_search_iterative.py # debug the binary_search_iterative.py example
+```
+
+You can use the debugger to run one line of the code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The `pdb` help is pretty good, but feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
+
 #### [Ruby](https://www.ruby-lang.org/)
 
 The Ruby code samples are all compatible with Ruby 2.0 and newer. To run them, execute them like this at a command shell:
@@ -107,6 +117,17 @@ ruby -r debug selection_sort/selection_sort_imperative.rb
 ```
 
 You can use the debugger to run one line of code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (Ruby's debugger help is somewhat limited, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
+
+### About code comments
+
+In addition to containing detailed inline code comments, each example is also formally documented using the best practices of the language in which the example code is written. Formal documentation means that the files, classes, class members, methods, functions, arguments of each function, and other relevant implementation details are accessible by tools that automatically generate a programmer's manual for how to use the class, method, or function implemented by the example. Each language has its own de-facto standard tool for this:
+
+* [JSDoc](http://usejsdoc.org/) is used for documenting the JavaScript code samples.
+* [PHPDoc](https://phpdoc.org/) is used for documenting the PHP code samples.
+* [Google-style Python docstrings](https://google.github.io/styleguide/pyguide.html?showone=Comments#Comments) are used for documenting the Python code samples. Additionally, the Python code samples embed [`doctest`s](https://en.wikipedia.org/wiki/Doctest) to show example usage and output.
+* [RDoc](http://rdoc.sourceforge.net/doc/index.html) is used for documenting the Ruby code samples.
+
+I've done this in order to habitualize novice programmers to reading (and hopefully writing) such auto-generatable documentation. Since each code sample is self-contained and relatively small, this also provides a good opportunity to practice installing, using, and tweaking the formatting or output of such automatic code documentation tools, if you want to do that. (I recommend it.)
 
 ## Exercise suggestions
 
