@@ -289,18 +289,39 @@ Recall that the total number of steps selection sort needs to take to completely
                 10 total steps
 ```
 
-This expression looks like `4 + 3 + 2 + 1 = 10`. To figure out the total number of steps for *any* number (for any value of `n`), we can make two copies of this procedure, reverse one of them, and add both of them together, like this:
+This expression looks like `4 + 3 + 2 + 1 = 10`. That's fine specifically for `4` rows (when `n` is `4`), but how can we find out the total number of steps for *any* number of rows (for *any* value of `n`)? To do that, we need to have noticed the following pattern (and if you didn't, it's okay, because you're about to notice it) in the triangles above:
+
+```
+ o o o o <--   4 <---------------------------| first number (4)
+  o o o  <-- + 3 <—+ second number (3) plus  | plus
+   o o   <-- + 2 <—+ 2nd-to-last number (2)=5| last number  (1)
+    o    <-- + 1 <---------------------------| ALSO equals  (5)
+```
+
+More visually again, this same pattern:
+
+```
+      4 on this side
+         | | | |
+         v v v v
+    4 —> o o o o <— 4
+   on —>  o o o  <— on
+ this —>   o o   <— this
+ side —>    o    <— side, too!
+```
+
+This pattern holds no matter how big our triangles get. Adding the first and last number together will always yield the same result as adding the second number and the second-to-last number, the third number with the third-to-last number, and so on. The fact that this pattern holds true for any value of `n` is the key. Knowing this, we can write our procedure out without the triangles:
 
 ```
   (4 + 3 + 2 + 1)   <-- Our original procedure.
 + (1 + 2 + 3 + 4)   <-- A copy of our original procedure, reversed.
 -----------------
-   5 + 5 + 5 + 5     <-- Each pair added to its reversed copy.
+   5 + 5 + 5 + 5    <-- Each pair added to its reversed copy.
 ```
 
-Notice that the sum of each pair is always the same! It's `5`, which is our original number (`4`) plus one. This means we can replace `5` with `n + 1` (because `n` is "whatever number we started with"). Now we have four copies of `5` all added together `5 + 5 + 5 + 5` or, written more concisely, `4 * 5`, which totals `20`. But remember that we added together *two* copies of our original numbers, so the actual total is half that, or `4 * 5 / 2`, which totals `10`.
+Again, the important thing is that the sum of each pair is always the same! It's `5`, our original number (`4`) plus one. (That means we can we can replace `5` with `n + 1` later on). Now we have four copies of `5` all added together: `5 + 5 + 5 + 5` or, written more concisely, `4 * 5`, which totals `20`. But remember that we added together *two* copies of our original numbers, so the actual total number of steps is *half* that, or `4 * 5 / 2`, which totals `10`.
 
-So now we know that the total number of steps selection sort needs to take to finish working on a dataset of `n` items is `n * (n + 1) / 2`; we've replaced `4` with `n` and replaced `5` with `n + 1` to generalize the expression. Once again, we can visualize this more clearly with triangles. We start with one:
+So now we know that the total number of steps selection sort needs to take to finish working on a dataset of `n` items is `n * (n + 1) / 2`; we've replaced `4` with `n` and replaced `5` with `n + 1` to generalize the expression. Once again, we can visualize this more clearly by drawing it out with triangles. We start with one:
 
 ```
     o     <--   + 1 step
@@ -322,9 +343,9 @@ Finally, we know that we will need to pass over the data however many times ther
                         ——
 ```
 
-When computer scientists talk about "Big-O," they're only talking about an approximation for super large numbers. Big-O doesn't make sense for numbers like 10. So let's look at `n * (n + 1) / 2` and pretend like `n` is a much bigger number such as, say, ten thousand.
+When computer scientists talk about "Big-O," they're only talking about an approximation for super large numbers. Big-O isn't very useful for numbers like 10. So let's look at `n * (n + 1) / 2` and pretend like `n` is a much bigger number such as, say, ten thousand.
 
-What is half of a really big number (i.e., "a really big number divided by two")? *Still* a really big number. To make the point, let's look at 10,000. That's a ten with *three* zeros after it. What's half of 10,000? It's 5,000, which is *also* a number with three zeros after it. Both numbers are "three orders of magnitude" in size, so as far as computer notation is concerned, both are (basically) the same. A program which needs to take 10,000 steps to complete won't be noticably different to a human than a program which needs 5,000 steps to complete.
+What is half of a really big number (i.e., "a really big number divided by two")? *Still* a really big number. To make the point, let's look at 10,000. That's a ten with *three* zeros after it. What's half of 10,000? It's 5,000, which is *also* a number with three zeros after it. Both numbers are "three orders of magnitude" in size, so as far as computer notation is concerned, both are (basically) the same. A program which needs to take 10,000 steps to complete won't be noticably different to a human than a program which needs to take 5,000 steps to complete.
 
 This is all to say that (for really big values of `n`), `n * (n + 1) / 2` is basically the same as `n * (n + 1)`, without the `/ 2` at the end. The `/ 2` just isn't important. By the same logic, a really big number `+ 1` is *also* a really big number. So, when dealing with Big-O notation, we can safely drop the `+ 1` as well. For all we care, `10,000 + 1` might as well be `10,000`.
 
