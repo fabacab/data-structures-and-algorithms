@@ -7,6 +7,7 @@ A compendium for self-education about "data structures and algorithms," created 
   1. [Running the code](#running-the-code)
     * [JavaScript](#javascript)
     * [PHP](#php)
+    * [Perl](#perl)
     * [Python](#python)
     * [Ruby](#ruby)
   1. [About code comments](#about-code-comments)
@@ -76,13 +77,30 @@ The PHP code samples are all compatible with PHP 5.6 and newer. To run them, exe
 php singly_linked_list/singly_linked_list_object_oriented.php
 ```
 
-PHP's built-in debugger is called [`phpdbg`](http://phpdbg.com/). To debug the PHP code samples, execute them like so:
+PHP's standard debugger is called [`phpdbg`](http://phpdbg.com/). To debug the PHP code samples, execute them like so:
 
 ```sh
 phpdbg singly_linked_list/singly_linked_list_object_oriented.php
 ```
 
 You can use the debugger to run one line of code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The `phpdbg` help is verbose but not very intuitive, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
+
+#### [Perl](https://perl.org/)
+
+The Perl code samples are all compatible with Perl 5.22 and newer. To run them, execute them like this at a command shell:
+
+```sh
+# to run the functional-style implementation of the stack data structure example
+perl stack/stack_functional.pl
+```
+
+[Perl has a built-in debugger](http://perldoc.perl.org/perldebug.html#The-Perl-Debugger). To debug the code samples, execute them like so:
+
+```sh
+perl -d stack/stack_functional.pl # debug the functional stack example
+```
+
+You can use the debugger to run one line of the code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `h` to get help. (The Perl debugger's help is pretty thorough, but can be terse, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
 
 #### [Python](https://python.org/)
 
@@ -93,7 +111,7 @@ The Python code samples are all compatible with both [Python 2.7](https://docs.p
 python binary_search/binary_search_iterative.py
 ```
 
-Python's built-in debugger is called [`pdb`](https://docs.python.org/3/library/pdb.html). To debug the code samples, execute them like so:
+Python's standard debugging module is called [`pdb`](https://docs.python.org/3/library/pdb.html). To debug the code samples, execute them like so:
 
 ```sh
 python -m pdb binary_search/binary_search_iterative.py # debug the binary_search_iterative.py example
@@ -110,7 +128,7 @@ The Ruby code samples are all compatible with Ruby 2.0 and newer. To run them, e
 ruby selection_sort/selection_sort_imperative.rb
 ```
 
-Ruby's built-in debugging library is called [`Debug`](http://ruby-doc.org/stdlib-2.0.0/libdoc/debug/rdoc/DEBUGGER__.html). To debug the Ruby code samples, execute them like so:
+Ruby's standard debugging library is called [`Debug`](http://ruby-doc.org/stdlib-2.0.0/libdoc/debug/rdoc/DEBUGGER__.html). To debug the Ruby code samples, execute them like so:
 
 ```sh
 ruby -r debug selection_sort/selection_sort_imperative.rb
@@ -124,6 +142,7 @@ In addition to containing detailed inline code comments, each example is also fo
 
 * [JSDoc](http://usejsdoc.org/) is used for documenting the JavaScript code samples.
 * [PHPDoc](https://phpdoc.org/) is used for documenting the PHP code samples.
+* [Plain Old Documentation (POD)](http://perldoc.perl.org/perlpod.html) format is used for documenting the Perl code samples.
 * [Google-style Python docstrings](https://google.github.io/styleguide/pyguide.html?showone=Comments#Comments) are used for documenting the Python code samples. Additionally, the Python code samples embed [`doctest`s](https://en.wikipedia.org/wiki/Doctest) to show example usage and output.
 * [RDoc](http://rdoc.sourceforge.net/doc/index.html) is used for documenting the Ruby code samples.
 

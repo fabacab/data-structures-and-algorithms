@@ -4,15 +4,42 @@
  *
  * There are two parts to a singly linked list data structure. The
  * first part is the list itself. The second part are the elements of
- * the list.
+ * the list. Linked lists are often drawn as diagrams like this:
+ *
+ *     ——————————     ——————————     ——————————
+ *     | Elem 1 | --> | Elem 2 | --> | Elem 3 |
+ *     ——————————     ——————————     ——————————
+ *
+ * These diagrams are somewhat incomplete because they don't show the
+ * list itself or clearly explain what the "links" (the arrows) are.
+ * More accurate diagrams would show the list element's own structure,
+ * perhaps something like this:
+ *
+ * ——————————————————————————————————————————————————
+ * |                Singly Linked List              |
+ * |             First element: "Elem 1"            |
+ * |                                                |
+ * |    ——————————     ——————————     ——————————    |
+ * |    | Elem 1 |     | Elem 2 |     | Elem 3 |    |
+ * |    |        |     |        |     |        |    |
+ * |    | Title: |     | Title: |     | Title: |    |
+ * |    |-Opening|     | -Main  |     |-Ending |    |
+ * |    |        |     |  Theme |     | Credits|    |
+ * |    |        |     |        |     |        |    |
+ * |    | Next:  |     | Next:  |     | Next:  |    |
+ * |    | -Elem 2|     | -Elem 3|     | - NONE |    |
+ * |    ——————————     ——————————     ——————————    |
+ * |                                                |
+ * ——————————————————————————————————————————————————
  *
  * The list itself is made up of its elements. We can interact with a
  * given element by accessing that element directly, but in order to
  * access that element in the first place we first need to find it in
  * the list.
  *
- * To do this, we will define two PHP classes: one for the list, and
- * one for the list's elements.
+ * To do this, we will define two PHP classes, which correspond to the
+ * types of containing boxes in the diagram above: one for the list
+ * itself, and one for the list's elements.
  *
  * @file singly_linked_list_object_oriented.php Example implementation in Object-Oriented Programming style.
  *
@@ -90,13 +117,16 @@ class Singly_Linked_List {
 
 /**
  * An element in a Singly_Linked_List.
+ *
+ * Each element contains some arbitrary value and a pointer to the
+ * following element.
  */
 class Singly_Linked_List_Element {
 
     /**
      * The value of the element.
      *
-     * @var mixed $value
+     * @var mixed
      */
     public $value;
 
@@ -110,6 +140,9 @@ class Singly_Linked_List_Element {
     /**
      * Creates an element in a Singly Linked List.
      *
+     * When we create a new element, it should contain whatever was
+     * given to it. If nothing was then it should be empty (`null`).
+     *
      * @param mixed $value The value of this element.
      * @param null|Singly_Linked_List_Element The next element in the list, or `null` to indicate the final element.
      */
@@ -120,7 +153,7 @@ class Singly_Linked_List_Element {
 
 }
 
-// Let's put these items into a singly linked list.
+// Let's put these "items" into a singly linked list.
 $items = array('hairbrush', 'stuffed animal', 'blanket', 'cooking pot');
 
 // Create the list.
