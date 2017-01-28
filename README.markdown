@@ -87,7 +87,7 @@ You can use the debugger to run one line of code at a time, and it will allow yo
 
 #### [Perl](https://perl.org/)
 
-The Perl code samples are all compatible with Perl 5.22 and newer. To run them, execute them like this at a command shell:
+The Perl code samples are all compatible with Perl 5.16 and newer. To run them, execute them like this at a command shell:
 
 ```sh
 # to run the functional-style implementation of the stack data structure example

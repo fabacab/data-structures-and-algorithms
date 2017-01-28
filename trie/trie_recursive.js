@@ -1,5 +1,5 @@
 /**
- * Trie data strcuture.
+ * Trie data strcuture, recursive implementation.
  *
  * A trie (pronounced "try," shortened name from the word "reTRIEval")
  * is a kind of "tree" data structure useful for quickly retrieving
