@@ -6,6 +6,7 @@ A compendium for self-education about "data structures and algorithms," created 
 1. [How to use this repository](#how-to-use-this-repository)
   1. [Running the code](#running-the-code)
     * [JavaScript](#javascript)
+    * [Java](#java)
     * [PHP](#php)
     * [Perl](#perl)
     * [Python](#python)
@@ -67,6 +68,42 @@ Alternatively, open the `.html` file in your web browser (probably just by doubl
   * [Opening the Firefox JavaScript Debugger](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger)
   * [Set a breakpoint - Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_breakpoint)
   * [Step through code - Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_breakpoint)
+
+#### [Java](https://java.com/)
+
+The Java code samples are all compatible with [Java SE](https://en.wikipedia.org/wiki/Java_Platform%2C_Standard_Edition "Java Platform, Standard Edition") 8. They must first be compiled before they can be run. To compile them, invoke the Java compiler like this at a command shell:
+
+```sh
+# to compile the recursive implementation of the binary search example
+javac binary_search/BinarySearchRecursive.java
+```
+
+Once compiled, the code samples can be run by informing the Java application launcher where to find them, and which class's code to execute. Do so like this:
+
+```sh
+java -classpath binary_search   BinarySearchRecursive
+#    ^^^^^^^^^^                 ^^^^^^^^^^^^^^^^^^^^^
+#    Tell Java to look for      Name of the class whose `main()`
+#    compiled code (`.class`)   method should be executed.
+#    files in the
+#    following directory.
+```
+
+Java's standard debugger is called `jdb` (on both [macOS/*nix](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jdb.html) and [Windows](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html)). To debug the Java code samples, first compile them with the `-g` option to include debugging information:
+
+```sh
+javac -g binary_search/BinarySearchRecursive.java
+#     ^^
+#     Make sure you include this `-g` switch!
+```
+
+Once compiled with debugging information included, you can use the Java debugger to inspect the values of all variables during program exeuction, run the code one line at a time, step by step, and more:
+
+```sh
+jdb -classpath binary_search BinarySearchRecursive.java
+```
+
+Once in the debugger, type `help` to get help. (The `jdb` help is pretty thorough but can be terse, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
 
 #### [PHP](https://php.net/)
 
@@ -141,6 +178,7 @@ You can use the debugger to run one line of code at a time, and it will allow yo
 In addition to containing detailed inline code comments, each example is also formally documented using the best practices of the language in which the example code is written. Formal documentation means that the files, classes, class members, methods, functions, arguments of each function, and other relevant implementation details are accessible by tools that automatically generate a programmer's manual for how to use the class, method, or function implemented by the example. Each language has its own de-facto standard tool for this:
 
 * [JSDoc](http://usejsdoc.org/) is used for documenting the JavaScript code samples.
+* [Javadoc](https://docs.oracle.com/javase/8/docs/technotes/guides/javadoc/index.html) is used for documenting the Java code samples.
 * [PHPDoc](https://phpdoc.org/) is used for documenting the PHP code samples.
 * [Plain Old Documentation (POD)](http://perldoc.perl.org/perlpod.html) format is used for documenting the Perl code samples.
 * [Google-style Python docstrings](https://google.github.io/styleguide/pyguide.html?showone=Comments#Comments) are used for documenting the Python code samples. Additionally, the Python code samples embed [`doctest`s](https://en.wikipedia.org/wiki/Doctest) to show example usage and output.
