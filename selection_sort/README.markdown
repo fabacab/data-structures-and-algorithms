@@ -319,7 +319,7 @@ This pattern holds no matter how big our triangles get. Adding the first and las
    5 + 5 + 5 + 5    <-- Each pair added to its reversed copy.
 ```
 
-Again, the important thing is that the sum of each pair is always the same! It's `5`, our original number (`4`) plus one. (That means we can we can replace `5` with `n + 1` later on). Now we have four copies of `5` all added together: `5 + 5 + 5 + 5` or, written more concisely, `4 * 5`, which totals `20`. But remember that we added together *two* copies of our original numbers, so the actual total number of steps is *half* that, or `4 * 5 / 2`, which totals `10`.
+Again, the important thing is that the sum of each pair is always the same! It's `5`, our original number (`4`) plus one. (That means we can replace `5` with `n + 1` later on). Now we have four copies of `5` all added together: `5 + 5 + 5 + 5` or, written more concisely, `4 * 5`, which totals `20`. But remember that we added together *two* copies of our original numbers, so the actual total number of steps is *half* that, or `4 * 5 / 2`, which totals `10`.
 
 So now we know that the total number of steps selection sort needs to take to finish working on a dataset of `n` items is `n * (n + 1) / 2`; we've replaced `4` with `n` and replaced `5` with `n + 1` to generalize the expression. Once again, we can visualize this more clearly by drawing it out with triangles. We start with one:
 
