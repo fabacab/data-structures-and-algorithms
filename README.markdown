@@ -4,14 +4,14 @@ A compendium for self-education about "data structures and algorithms," created 
 
 1. [Motivation](#motivation)
 1. [How to use this repository](#how-to-use-this-repository)
-  1. [Running the code](#running-the-code)
-    * [JavaScript](#javascript)
-    * [Java](#java)
-    * [PHP](#php)
-    * [Perl](#perl)
-    * [Python](#python)
-    * [Ruby](#ruby)
-  1. [About code comments](#about-code-comments)
+    1. [Running the code](#running-the-code)
+        * [JavaScript](#javascript)
+        * [Java](#java)
+        * [PHP](#php)
+        * [Perl](#perl)
+        * [Python](#python)
+        * [Ruby](#ruby)
+    1. [About code comments](#about-code-comments)
 1. [Exercise suggestions](#exercise-suggestions)
 
 ## Motivation
