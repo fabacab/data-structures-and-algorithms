@@ -40,7 +40,7 @@ Better yet, *debug* them yourself. This doesn't mean that there are bugs in the 
 
 #### [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-The JavaScript code samples are all compatible with [NodeJS](https://nodejs.org/) and all modern Web browser consoles because they conform to [ECMAScript 5](https://en.wikipedia.org/wiki/ECMAScript#5th_Edition). You can run them in a shell at a command line, or you can copy-and-paste them into the JavaScript console in your browser's developer tools.
+The JavaScript code samples are all compatible with [NodeJS](https://nodejs.org/) and all modern Web browser consoles because they conform to [ECMAScript 5](https://en.wikipedia.org/wiki/ECMAScript#5th_Edition). You can run them in a shell at a command line, you can copy-and-paste them into the JavaScript console in your browser's developer tools.
 
 To run them in a shell, execute them with `node` like this:
 
@@ -49,10 +49,10 @@ To run them in a shell, execute them with `node` like this:
 node trie/trie_recursive.js
 ```
 
-NodeJS has a built-in debugger, but the author finds it horrifically lacking and far prefers basically any browser's developer tools instead. That said, to debug the JavaScript code samples with the built-in NodeJS debugger, execute them like so:
+NodeJS supports the [Chrome DevTools Protocol](https://devtools.chrome.com/) with which you can attach any supported debugger, including the command-line debugging interface built into NodeJS itself. To debug the JavaScript code samples with the built-in NodeJS debugger, execute them like so:
 
 ```sh
-node debug trie/trie_recursive.js
+node inspect trie/trie_recursive.js
 ```
 
 You can use the debugger to run one line of the code at a time, and it will allow you to inspect the values of all the variables during program execution. Once in the debugger, type `help` to get help. (The NodeJS debugger's help isn't very extensive, so feel free to hop into the [Better Angels's public chat room](https://gitter.im/betterangels/better-angels) if you need help from a human.)
