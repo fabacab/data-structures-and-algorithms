@@ -97,7 +97,7 @@ javac -g binary_search/BinarySearchRecursive.java
 #     Make sure you include this `-g` switch!
 ```
 
-Once compiled with debugging information included, you can use the Java debugger to inspect the values of all variables during program exeuction, run the code one line at a time, step by step, and more:
+Once compiled with debugging information included, you can use the Java debugger to inspect the values of all variables during program execution, run the code one line at a time, step by step, and more:
 
 ```sh
 jdb -classpath binary_search BinarySearchRecursive.java
